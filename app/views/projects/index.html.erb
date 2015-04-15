@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+<div id="offset-30">
+<div class="row">
+    <div class="small-12 medium-6 columns">
+        <%= link_to image_tag(@latest.image_url), @latest %>
+    </div>
+    <div class="small-12 medium-6 columns">
+        <h1><%= link_to @latest.name, @latest %></h1>
+        <h4><%= @latest.subtitle %></h4>
+    </div>
+</div>
+<br />
+
+<div class="row">
+  <% @projects.each do |project| %>
+    <div class="large-3 medium-4 small-6 columns">
+        <%= link_to image_tag(project.image_url), project %>
+        <center>
+        <h3><%= link_to project.name, project %></h3>
+        <p><%= project.subtitle %></p></center>
+    </div>
+  <% end %>
+</div>
+<br />
+<% if admin_signed_in? %>
+<div class="row">
+<%= link_to 'New Project', new_project_path, class:"button ghost small-4 medium-3 large-2" %>
+</div>
+<% end %>
+<br />
+
+</div>
+
+
